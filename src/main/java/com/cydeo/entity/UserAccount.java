@@ -9,15 +9,10 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class UserAccount {
+public class UserAccount extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private AccountDetails accountDetails;
-
 
     private String email;
     private String password;

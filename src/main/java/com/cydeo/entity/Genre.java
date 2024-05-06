@@ -10,17 +10,8 @@ import java.time.LocalDate;
 @Entity
 @Data
 @NoArgsConstructor
-public class Genre {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Genre extends BaseEntity{
 
     private String name;
 
-
-    public Genre(String name) {
-        this.name = name;
-    }
 }

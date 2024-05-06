@@ -5,18 +5,16 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @NoArgsConstructor
-public class Location {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Location extends BaseEntity {
 
     private String name;
-    private Long latitude;
-    private Long longitude;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
     private String country;
     private String city;
     private String state;

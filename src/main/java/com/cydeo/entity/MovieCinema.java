@@ -4,29 +4,21 @@ package com.cydeo.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
 @NoArgsConstructor
-public class MovieCinema {
+public class MovieCinema extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)  //
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cinema cinema;
 
+    @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
 
-    public MovieCinema(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 }

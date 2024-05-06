@@ -4,6 +4,7 @@ import com.cydeo.enums.State;
 import com.cydeo.enums.Type;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -11,14 +12,11 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @NoArgsConstructor
-public class Movie {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Movie extends BaseEntity {
 
     private String name;
     private BigDecimal price;
@@ -38,16 +36,8 @@ public class Movie {
 
     private Double duration;
 
+    @Column(columnDefinition = "text")
     private String summary;
 
 
-    public Movie(String name, BigDecimal price, Type type, State state, LocalDate releaseDate, Double duration, String summary) {
-        this.name = name;
-        this.price = price;
-        this.type = type;
-        this.state = state;
-        this.releaseDate = releaseDate;
-        this.duration = duration;
-        this.summary = summary;
-    }
 }
